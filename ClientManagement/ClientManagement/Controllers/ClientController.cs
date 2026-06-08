@@ -1,11 +1,13 @@
 ﻿using ClientManagement.Data;
 using ClientManagement.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClientManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;

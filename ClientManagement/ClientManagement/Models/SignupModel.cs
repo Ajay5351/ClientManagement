@@ -2,7 +2,7 @@
 
 namespace ClientManagement.Models
 {
-    public class SignupModel
+    public class SignUpModel
     {
         [Required]
         public string? FirstName { get; set; }

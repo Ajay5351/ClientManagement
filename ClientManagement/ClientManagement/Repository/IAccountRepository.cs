@@ -5,6 +5,7 @@ namespace ClientManagement.Repository
 {
     public interface IAccountRepository
     {
-        Task<IdentityResult> SignupAsync(SignupModel signupModel);
+        Task<IdentityResult> SignUpAsync(SignUpModel signUpModel);
+        Task<string> LoginAsync(SignInModel signInModel);
     }
 }
