@@ -1,4 +1,4 @@
-﻿using ClientManagement.Models;
+﻿using ClientManagement.Data;
 
 namespace ClientManagement.Repository
 {

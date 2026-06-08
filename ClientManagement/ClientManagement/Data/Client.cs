@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ClientManagement.Models;
+namespace ClientManagement.Data;
 
 public partial class Client
 {

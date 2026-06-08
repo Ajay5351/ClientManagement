@@ -1,5 +1,7 @@
+using ClientManagement.Data;
 using ClientManagement.Models;
 using ClientManagement.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,12 @@ builder.Services.AddDbContext<ClientManagementDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("ClientDb")));
 
+builder.Services.AddIdentity<ApplicationModel, IdentityRole>()
+    .AddEntityFrameworkStores<ClientManagementDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddTransient<IClientRepository, ClientRepository>();
+builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

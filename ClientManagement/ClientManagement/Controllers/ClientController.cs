@@ -1,6 +1,5 @@
-﻿using ClientManagement.Models;
+﻿using ClientManagement.Data;
 using ClientManagement.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClientManagement.Controllers
@@ -81,10 +80,12 @@ namespace ClientManagement.Controllers
             try
             {
                 var result = await _clientRepository.DeleteClient(id);
+
                 if (!result)
                 {
                     return NotFound("Client not found.");
                 }
+
                 return Ok("Client deleted successfully.");
             }
             catch (Exception ex)

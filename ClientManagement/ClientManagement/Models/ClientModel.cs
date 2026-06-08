@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ClientManagement.Data
+namespace ClientManagement.Models
 {
     public class ClientModel
     {
