@@ -17,30 +17,68 @@ namespace ClientManagement.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<IActionResult> Signup(SignUpModel signUpModel)
+        public async Task<IActionResult> Signup([FromBody] SignUpModel signupModel)
         {
-            var result = await _accountRepository.SignUpAsync(signUpModel);
-
-            if (result.Succeeded)
+            if (!ModelState.IsValid)
             {
-                return Ok(result.Succeeded);
+                return BadRequest(ModelState);
             }
 
-            return Unauthorized();
-        }
+            try
+            {
+                var result = await _accountRepository.SignUpAsync(signupModel);
 
+                if (result.Succeeded)
+                {
+                    return Ok(new
+                    {
+                        Message = "User registered successfully"
+                    });
+                }
+
+                return BadRequest(result.Errors);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Message = ex.Message
+                });
+            }
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] SignInModel signInModel)
         {
-            var result = await _accountRepository.LoginAsync(signInModel);
-
-            if (result != null)
+            if (!ModelState.IsValid)
             {
-                return Ok(result);
+                return BadRequest(ModelState);
             }
 
-            return Unauthorized();
+            try
+            {
+                var token = await _accountRepository.LoginAsync(signInModel);
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Unauthorized(new
+                    {
+                        Message = "Invalid email or password"
+                    });
+                }
+
+                return Ok(new
+                {
+                    Token = token
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Message = ex.Message
+                });
+            }
         }
     }
 }
