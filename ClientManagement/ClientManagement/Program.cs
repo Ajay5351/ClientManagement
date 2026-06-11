@@ -54,6 +54,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddMemoryCache();
+builder.Services.AddLazyCache();
+
 builder.Services.AddTransient<IClientRepository, ClientRepository>();
 builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 
