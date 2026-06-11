@@ -1,4 +1,4 @@
-﻿using ClientManagement.Data;
+﻿using ClientManagement.Models;
 using ClientManagement.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

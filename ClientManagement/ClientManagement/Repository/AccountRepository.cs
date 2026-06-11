@@ -25,21 +25,6 @@ namespace ClientManagement.Repository
 
         public async Task<IdentityResult> SignUpAsync(SignUpModel signUpModel)
         {
-            if (signUpModel == null)
-                throw new ArgumentNullException(nameof(signUpModel));
-
-            if (string.IsNullOrWhiteSpace(signUpModel.FirstName))
-                throw new Exception("First Name is required.");
-
-            if (string.IsNullOrWhiteSpace(signUpModel.LastName))
-                throw new Exception("Last Name is required.");
-
-            if (string.IsNullOrWhiteSpace(signUpModel.Email))
-                throw new Exception("Email is required.");
-
-            if (string.IsNullOrWhiteSpace(signUpModel.Password))
-                throw new Exception("Password is required.");
-
             var existingUser =
                 await _userManager.FindByEmailAsync(signUpModel.Email);
 
@@ -61,15 +46,6 @@ namespace ClientManagement.Repository
 
         public async Task<string?> LoginAsync(SignInModel signInModel)
         {
-            if (signInModel == null)
-                throw new ArgumentNullException(nameof(signInModel));
-
-            if (string.IsNullOrWhiteSpace(signInModel.Email))
-                throw new Exception("Email is required.");
-
-            if (string.IsNullOrWhiteSpace(signInModel.Password))
-                throw new Exception("Password is required.");
-
             var user =
                 await _userManager.FindByEmailAsync(signInModel.Email);
 
