@@ -1,7 +1,7 @@
 ﻿using ClientManagement.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace ClientManagement.Repository
+namespace ClientManagement.BusinessLogic
 {
     public interface IAccountRepository
     {

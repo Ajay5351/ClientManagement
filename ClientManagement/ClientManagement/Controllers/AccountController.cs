@@ -1,9 +1,8 @@
 ﻿using ClientManagement.Models;
-using ClientManagement.Repository;
-using Microsoft.AspNetCore.Http;
+using ClientManagement.BusinessLogic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ClientManagement.Controllers
+namespace ClientManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

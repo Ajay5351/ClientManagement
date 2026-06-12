@@ -1,6 +1,6 @@
 ﻿using ClientManagement.Models;
 
-namespace ClientManagement.Repository
+namespace ClientManagement.BusinessLogic
 {
     public interface IClientRepository
     {

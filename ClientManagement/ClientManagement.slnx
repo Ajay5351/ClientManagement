@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="ClientManagement/ClientManagement.csproj" />
+  <Project Path="ClientManagement.BusinessLogic/ClientManagement.BusinessLogic.csproj" Id="9e3b3312-8d3e-4edf-ba92-08e833cf7e70" />
+  <Project Path="ClientManagement.DataAccess/ClientManagement.DataAccess.csproj" Id="df6e98d6-2c78-411b-a03b-65b833bed44d" />
+  <Project Path="ClientManagement.Models/ClientManagement.Models.csproj" Id="8ebb3f2c-d595-4d3d-ad6a-1055bc3d1350" />
+  <Project Path="ClientManagement/ClientManagement.API.csproj" />
 </Solution>

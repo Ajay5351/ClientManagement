@@ -2,7 +2,7 @@
 using ClientManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClientManagement.Repository
+namespace ClientManagement.BusinessLogic
 {
     public class ClientRepository : IClientRepository
     {

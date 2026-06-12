@@ -1,12 +1,12 @@
-﻿using ClientManagement.Caching;
+﻿using ClientManagement.BusinessLogic;
+using ClientManagement.API.Caching;
 using ClientManagement.Models;
-using ClientManagement.Repository;
 using LazyCache;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ClientManagement.Controllers
+namespace ClientManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -90,6 +90,10 @@ namespace ClientManagement.Controllers
         [HttpPost("")]
         public async Task<IActionResult> AddClient([FromBody] Client client)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var addedClient = await _clientRepository.AddClient(client);
@@ -107,6 +111,11 @@ namespace ClientManagement.Controllers
             if (id != client.ClientId)
             {
                 return BadRequest("Client ID mismatch.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
             }
 
             try

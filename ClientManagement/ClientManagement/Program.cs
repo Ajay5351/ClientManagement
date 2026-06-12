@@ -1,6 +1,6 @@
 using ClientManagement.Data;
 using ClientManagement.Models;
-using ClientManagement.Repository;
+using ClientManagement.BusinessLogic;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
